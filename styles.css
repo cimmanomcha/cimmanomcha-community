@@ -1,0 +1,313 @@
+:root {
+  --main-bg: #141313;
+  --card-bg: #19181a;
+  --accent: #ff1a4b;
+  --accent-dark: #a3002c;
+  --text: #fff;
+  --text-muted: #b4b4b4;
+  --border: #232323;
+  --radius: 16px;
+  --shadow: 0 4px 16px rgba(0,0,0,0.22);
+  --primary-font: 'Inter', 'Segoe UI', Arial, sans-serif;
+  --pop-font: 'Poppins', 'Inter', sans-serif;
+  --emoji-size: 1.2em;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Poppins:wght@700&display=swap');
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--main-bg);
+  color: var(--text);
+  font-family: var(--primary-font);
+  letter-spacing: -0.01em;
+}
+
+header {
+  background: var(--card-bg);
+  padding: 1.5rem 2rem 1rem 2rem;
+  border-bottom: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  position: sticky;
+  top: 0;
+  z-index: 2;
+}
+
+header h1 {
+  margin: 0;
+  font-family: var(--pop-font);
+  font-size: 2.1rem;
+  letter-spacing: -1px;
+  color: var(--accent);
+  font-weight: 700;
+  text-align: center;
+  text-shadow: 0 2px 8px #0002;
+}
+
+nav {
+  margin-top: 0.7rem;
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+nav a {
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 1.08rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  padding-bottom: 0.2rem;
+  border-bottom: 2px solid transparent;
+  transition: color 0.18s, border 0.18s;
+  border-radius: 8px;
+}
+
+nav a.active,
+nav a:hover, nav a:focus {
+  color: var(--accent);
+  border-bottom: 2px solid var(--accent);
+  background: #23141b40;
+}
+
+main {
+  max-width: 700px;
+  margin: 2.3rem auto 0 auto;
+  padding: 0 1rem;
+}
+
+.page {
+  display: none;
+}
+
+.page.active {
+  display: block;
+  animation: fadein 0.43s cubic-bezier(.4,1.8,.53,1);
+}
+
+@keyframes fadein {
+  from { opacity: 0; filter: blur(12px);}
+  to { opacity: 1; filter: blur(0);}
+}
+
+.card {
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 2.2rem 1.7rem 1.6rem 1.7rem;
+  margin-bottom: 2.2rem;
+  border: 1px solid var(--border);
+  min-width: 300px;
+}
+
+.card h2 {
+  margin-top: 0;
+  color: var(--accent);
+  font-size: 1.4rem;
+  font-family: var(--pop-font);
+  letter-spacing: -0.5px;
+  display: flex;
+  align-items: center;
+  gap: 0.4em;
+}
+
+.quick-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.1rem;
+  margin: 2rem 0 0 0;
+}
+
+.quick-link {
+  background: var(--accent);
+  color: #fff;
+  padding: 0.8rem 1.4rem;
+  border-radius: var(--radius);
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1rem;
+  box-shadow: 0 1px 6px #0003;
+  transition: background 0.15s,transform 0.13s;
+  letter-spacing: 0.04em;
+  display: inline-block;
+}
+.quick-link:hover, .quick-link:focus {
+  background: var(--accent-dark);
+  transform: scale(1.07);
+}
+
+.main-gif, .about-gif {
+  margin-top: 1.5rem;
+  text-align: center;
+}
+.main-gif img, .about-gif img {
+  border-radius: 14px;
+  max-width: 180px;
+  box-shadow: 0 4px 18px 0 #0004;
+  border: 2.5px solid var(--accent-dark);
+}
+
+.post-form,
+.chat-form {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+
+.post-form input,
+.chat-form input {
+  border: none;
+  border-radius: var(--radius);
+  background: #232025;
+  color: var(--text);
+  padding: 0.65rem 1.1rem;
+  font-size: 1.01rem;
+  width: 100%;
+  margin-bottom: 0.4rem;
+  outline: none;
+  box-sizing: border-box;
+  font-family: var(--primary-font);
+  letter-spacing: 0;
+  transition: box-shadow 0.18s;
+}
+.post-form input:focus,
+.chat-form input:focus {
+  box-shadow: 0 0 0 2px var(--accent);
+}
+
+button {
+  background: var(--accent);
+  color: var(--text);
+  border: none;
+  border-radius: var(--radius);
+  padding: 0.62rem 1.2rem;
+  font-size: 1.06rem;
+  cursor: pointer;
+  font-weight: 700;
+  transition: background 0.2s, transform 0.13s;
+  letter-spacing: 0.02em;
+  font-family: var(--pop-font);
+}
+button:hover, button:focus {
+  background: var(--accent-dark);
+  transform: scale(1.06);
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.post-list li {
+  background: #23141b;
+  border-radius: var(--radius);
+  padding: 1rem;
+  margin-bottom: 1.1rem;
+  border-left: 4px solid var(--accent);
+  box-shadow: 0 2px 8px #0001;
+  transition: box-shadow 0.16s;
+}
+.post-list li:hover {
+  box-shadow: 0 4px 16px #0002;
+}
+.post-list strong {
+  color: var(--accent);
+}
+.post-list .timestamp {
+  color: var(--text-muted);
+  font-size: 0.93em;
+  float: right;
+  margin-left: 1em;
+}
+
+.member-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 0.7rem 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.avatar {
+  background: linear-gradient(135deg, var(--accent) 65%, var(--accent-dark) 100%);
+  color: #fff;
+  width: 2.3rem;
+  height: 2.3rem;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  font-family: var(--pop-font);
+  font-weight: 700;
+  letter-spacing: -.01em;
+  box-shadow: 0 2px 8px #0002;
+}
+
+.badge {
+  background: var(--accent-dark);
+  color: #fff;
+  padding: 0.23rem 0.6rem;
+  border-radius: 0.7rem;
+  font-size: 0.78rem;
+  margin-left: 0.5rem;
+  font-weight: 700;
+  font-family: var(--pop-font);
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  opacity: 0.9;
+}
+.badge.admin { background: #212121; color: var(--accent); border: 1px solid var(--accent); }
+.badge.OG   { background: #171717; color: #fff; border: 1px solid #222; }
+.badge.Vibes { background: var(--accent); color: #fff; border: 1px solid var(--accent-dark); }
+
+.chat-window {
+  background: #232025;
+  border-radius: var(--radius);
+  min-height: 90px;
+  max-height: 220px;
+  overflow-y: auto;
+  padding: 0.85rem 0.8rem;
+  margin-bottom: 0.7rem;
+  font-size: 1.01rem;
+  font-family: var(--primary-font);
+  box-shadow: 0 2px 8px #0001;
+}
+
+.message {
+  margin-bottom: 0.5rem;
+  color: var(--text);
+  word-break: break-word;
+  line-height: 1.5;
+  font-size: 1.05em;
+  font-family: var(--primary-font);
+}
+
+footer {
+  text-align: center;
+  color: var(--text-muted);
+  padding: 2rem 0 1rem 0;
+  font-size: 1rem;
+  border-top: 1px solid var(--border);
+  margin-top: 2.5rem;
+  letter-spacing: 0.01em;
+}
+
+@media (max-width: 600px) {
+  main {
+    padding: 0;
+  }
+  header {
+    padding: 1.2rem 0.6rem 0.8rem 0.6rem;
+  }
+  .card {
+    padding: 1.3rem 0.6rem 1.1rem 0.6rem;
+  }
+  .main-gif img, .about-gif img {
+    max-width: 110px;
+  }
+}
